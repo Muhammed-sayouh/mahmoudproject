@@ -10,10 +10,13 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: getTheme(),
-      home: const SplashScreen(),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: getTheme(),
+        home: const SplashScreen(),
+      ),
     );
   }
 }

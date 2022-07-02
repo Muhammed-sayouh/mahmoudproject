@@ -32,6 +32,7 @@ Widget customButton(
     {String title,
     Function tapped,
     BuildContext context,
+    double fontSize,
     double selectedWidth,
     double selectedHeight}) {
   return InkWell(
@@ -46,8 +47,8 @@ Widget customButton(
       child: Center(
         child: Text(
           title,
-          style: const TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+          style:  TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize:fontSize?? 18),
         ),
       ),
     ),

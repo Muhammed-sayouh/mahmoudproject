@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mahmoudproject/helpers/constants.dart';
 import 'package:mahmoudproject/ui/custom_widget/home_services.dart';
+import 'package:mahmoudproject/ui/screens/category_details/category_details_screen.dart';
 import 'package:mahmoudproject/ui/sizes/sizes.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -41,31 +42,18 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: height(context) * 0.02,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CategoriesWidget(
-                    image: 'assets/images/fix.jpg',
-                    onTap: () {},
-                    title: "نجاره",
-                  ),
-                  CategoriesWidget(
-                    image: 'assets/images/ele.jpg',
-                    onTap: () {},
-                    title: "نجاره",
-                  ),
-                ],
-              ),     Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // CategoriesWidget(
-                  //   image: 'assets/images/water.jpg',
-                  //   onTap: () {},
-                  //   title: "نقاشه",
-                  // ),
-             
-                ],
-              ),
+              Expanded(
+                child: GridView.builder(
+                    itemCount: 1,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2, childAspectRatio: 1 / 1.5),
+                    itemBuilder: (BuildContext context, int index) =>
+                        CategoriesWidget(
+                          image: 'assets/images/ele.jpg',
+                          onTap: () =>Get.to(()=>CategoryDetailsScreen(),transition: Transition.zoom),
+                          title: "كهرباء",
+                        )),
+              )
             ],
           ),
         ),
